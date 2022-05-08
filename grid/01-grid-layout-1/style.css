@@ -2,12 +2,34 @@ body, html {
   height: 100%;
   margin: 0;
 }
+/*
+
+- The gap is 15px
+- The grid has two columns
+- The grid has four rows
+- The second column is three times larger than the first
+- The third row is five times larger than the others
+- The header and footer elements span across both columns
+- The sidebar element only spans across the first column
+- The nav and article elements span across the second column
+
+*/
 
 .container {
   text-align: center;
   height: 100%;
   padding: 16px;
   box-sizing: border-box;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 25% 75%;
+  /*if the second one needs to be 5 times as big as the other ones,
+  Simply count them as if they are more rows.
+  1 + 5 + 1 + 1 = 8
+  Now to calculate what percentage 1/8 is anad 5/8 respectively
+  100/8 = 12.5 => 1/8
+  Therefore 1/8 = 12.5% and the bug one  62.5%*/
+  grid-row: 12.5% 62.5% 12.5% 12.5%;
 }
 
 .container div {
@@ -21,10 +43,14 @@ body, html {
 
 .header {
   background-color: #FFDE22;
+  grid-column: 1/ span 2;
+ 
 }
 
 .sidebar {
   background-color: #FF7755;
+  grid-column: 1/2;
+  grid-row: 2/ span 2;
 }
 
 .nav {
@@ -44,4 +70,5 @@ body, html {
 
 .footer {
   background-color: #393f4d;
+  grid-column: 1/ span 2;
 }
