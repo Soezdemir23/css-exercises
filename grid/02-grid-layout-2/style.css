@@ -3,11 +3,28 @@ body, html {
   margin: 0;
 }
 
+/*
+  Self check
+  + The gap is 15px - Done
+  + the grid has two columns - done
+  + The grid has four rows - done
+  + the grid tracks do not use static sizes (no pixels!) - done
+  + the second column is three times larger than the other -done
+  + the third row is five times larger than the others - done
+  + The rows and columns stretch wider when making the browser window bigger - Done?
+  + The rows and columns stretch taller when making the browser window smaller - Done?
+  I do not exactly think this might be the solution, but it fits the solution of this course.
+  Shouldn't the elements go wiiiiider and stretch smaller?
+*/
 .container {
+  display: grid;
+  gap: 15px;
   text-align: center;
   height: 100%;
   padding: 16px;
   box-sizing: border-box;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 1fr 5fr 1fr;
 }
 
 .container div {
@@ -22,6 +39,7 @@ body, html {
 .header {
   background-color: #FFDE22;
   grid-column: 1 / 3;
+  place-self: stretchS;
 }
 
 .sidebar {
@@ -31,10 +49,13 @@ body, html {
 
 .nav {
   background-color: #00DDFF;
+  grid-column: 2/3;
+  grid-row:2/3;
 }
 
 .article {
   background-color: #bccbde;
+
 }
 
 .article p {
